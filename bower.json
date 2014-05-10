@@ -1,0 +1,23 @@
+{
+  "name": "contactbooster/backbone",
+  "version": "0.1.0",
+  "authors": [
+    "beNjiox <benjamin@guez.fr>"
+  ],
+  "description": "contactbooster frontend using backboneJS",
+  "main": "index.html",
+  "keywords": [
+    "frontend",
+    "backbone",
+    "app"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
