@@ -1,9 +1,6 @@
 (function() {
   window.Contacts = Backbone.Collection.extend({
-    model: Contact,
-    initialize: function() {
-      return console.log("initialize Contacts collection");
-    }
+    model: Contact
   });
 
 }).call(this);

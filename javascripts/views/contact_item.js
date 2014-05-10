@@ -1,11 +1,10 @@
 (function() {
   window.ContactItem = Backbone.View.extend({
-    template: _.template('<li><%= name %> - <%= telephone %></li>'),
-    initialize: function() {
-      return console.log("initialize ContactView");
-    },
+    template: _.template('<%= name %> - <%= telephone %>'),
+    initialize: function() {},
     render: function() {
-      return this.$el.html(this.template(this.model.attributes));
+      this.$el.html(this.template(this.model.attributes));
+      return this;
     }
   });
 

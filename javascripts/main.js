@@ -4,18 +4,25 @@
       "": "index"
     },
     initialize: function() {
-      this.contact = new Contact({
-        name: "Benjamin",
-        telephone: "0625717532"
+      this.contacts = new Contacts([
+        {
+          name: "Benjamin",
+          telephone: "0625717532"
+        }, {
+          name: "Michael Jordan",
+          telephone: "5554443322"
+        }, {
+          name: "Scottie Pippen",
+          telephone: "999955553333"
+        }
+      ]);
+      return this.contactList = new ContactList({
+        collection: this.contacts,
+        el: '.contact_list'
       });
-      this.contactItem = new ContactItem({
-        model: this.contact,
-        el: '#app'
-      });
-      return this.contactItem.render();
     },
     index: function() {
-      return this.contactItem.el;
+      return this.contactList.render();
     },
     start: function() {
       return Backbone.history.start();

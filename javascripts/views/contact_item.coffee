@@ -1,9 +1,9 @@
 window.ContactItem = Backbone.View.extend({
-  template: _.template('<li><%= name %> - <%= telephone %></li>'),
+  template: _.template('<%= name %> - <%= telephone %>'),
 
   initialize: ->
-    console.log "initialize ContactView"
 
   render: ->
     @.$el.html(@template(@model.attributes))
+    @
 })

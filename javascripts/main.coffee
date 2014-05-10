@@ -1,15 +1,18 @@
 window.TodoApp = new (Backbone.Router.extend({
   routes: {
     "": "index"
-  },
+  }
 
   initialize: ->
-    @contact = new Contact({name: "Benjamin", telephone: "0625717532"})
-    @contactItem = new ContactItem({model: @contact, el: '#app'})
-    @contactItem.render()
+    @contacts    = new Contacts [
+      {name: "Benjamin", telephone: "0625717532"},
+      {name: "Michael Jordan", telephone: "5554443322"},
+      {name: "Scottie Pippen", telephone: "999955553333"},
+    ]
+    @contactList = new ContactList({collection: @contacts, el: '.contact_list'})
 
   index: ->
-    @contactItem.el
+    @contactList.render()
 
   start: ->
     Backbone.history.start()
