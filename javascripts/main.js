@@ -4,16 +4,27 @@
       "": "index"
     },
     initialize: function() {
-      return console.log("initialize");
+      this.contactItem = new ContactItem({
+        name: "Benjamin",
+        telephone: "0625717532"
+      });
+      this.contactView = new ContactView({
+        model: this.contactItem,
+        el: '#app'
+      });
+      return this.contactView.render();
     },
     index: function() {
-      return console.log("index route");
+      return this.contactView.el;
     },
     start: function() {
       return Backbone.history.start();
     }
   }));
 
-  window.TodoApp.start();
+  $(document).ready(function() {
+    window.TodoApp.start();
+    return console.log("app started!");
+  });
 
 }).call(this);

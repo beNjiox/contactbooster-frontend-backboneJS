@@ -6,17 +6,26 @@
     <meta name=description content="">
     <meta name=viewport content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
     <h1 class="text-center">Contactbooster - frontend/backbone</h1>
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="bower_components/underscore/underscore.js"></script>
-    <script src="bower_components/backbone/backbone.js"></script>
-    <script src="javascripts/main.js"></script>
+
+    <div id="app">
+      <div class="first"></div>
+      <div class="second"></div>
+    </div>
+
   </body>
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/backbone/backbone.js"></script>
+
+  <!-- backbone app's files -->
+  <script src="javascripts/models/contact_item.js"></script>
+  <script src="javascripts/views/contact_view.js"></script>
+  <script src="javascripts/main.js"></script>
 </html>

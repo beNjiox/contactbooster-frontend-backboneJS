@@ -4,13 +4,17 @@ window.TodoApp = new (Backbone.Router.extend({
   },
 
   initialize: ->
-    console.log "initialize"
+    @contactItem = new ContactItem({name: "Benjamin", telephone: "0625717532"})
+    @contactView = new ContactView({model: @contactItem, el: '#app'})
+    @contactView.render()
 
   index: ->
-    console.log "index route"
+    @contactView.el
 
   start: ->
     Backbone.history.start()
 }))
 
-window.TodoApp.start()
+$(document).ready ->
+  window.TodoApp.start()
+  console.log "app started!"
