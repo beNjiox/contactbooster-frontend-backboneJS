@@ -4,18 +4,18 @@
       "": "index"
     },
     initialize: function() {
-      this.contactItem = new ContactItem({
+      this.contact = new Contact({
         name: "Benjamin",
         telephone: "0625717532"
       });
-      this.contactView = new ContactView({
-        model: this.contactItem,
+      this.contactItem = new ContactItem({
+        model: this.contact,
         el: '#app'
       });
-      return this.contactView.render();
+      return this.contactItem.render();
     },
     index: function() {
-      return this.contactView.el;
+      return this.contactItem.el;
     },
     start: function() {
       return Backbone.history.start();

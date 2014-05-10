@@ -4,12 +4,12 @@ window.TodoApp = new (Backbone.Router.extend({
   },
 
   initialize: ->
-    @contactItem = new ContactItem({name: "Benjamin", telephone: "0625717532"})
-    @contactView = new ContactView({model: @contactItem, el: '#app'})
-    @contactView.render()
+    @contact = new Contact({name: "Benjamin", telephone: "0625717532"})
+    @contactItem = new ContactItem({model: @contact, el: '#app'})
+    @contactItem.render()
 
   index: ->
-    @contactView.el
+    @contactItem.el
 
   start: ->
     Backbone.history.start()
