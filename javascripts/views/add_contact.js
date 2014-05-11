@@ -3,7 +3,7 @@
     initialize: function() {},
     template: _.template($("#add-contact").html()),
     events: {
-      'click button.save': 'saveContact',
+      submit: 'saveContact',
       'click button.toggle': 'toggleAdd'
     },
     toggleAdd: function() {

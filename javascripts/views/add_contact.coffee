@@ -4,7 +4,7 @@ window.AddContact = Backbone.View.extend({
   template: _.template($("#add-contact").html())
   ,
   events: {
-    'click button.save': 'saveContact'
+    submit : 'saveContact'
     'click button.toggle': 'toggleAdd'
   }
   ,
