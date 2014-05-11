@@ -1,7 +1,7 @@
 (function() {
   window.AddContact = Backbone.View.extend({
     initialize: function() {},
-    template: $("#add-contact-tpl").html(),
+    template: _.template($("#add-contact").html()),
     events: {
       'click button.save': 'saveContact',
       'click button.toggle': 'toggleAdd'
@@ -9,11 +9,9 @@
     toggleAdd: function() {
       return this.$el.find('.add-contact-container').slideToggle('slow');
     },
-    saveContact: function() {
-      var contact;
-      contact = new Contact(this.newContactAttributes());
-      contact.save();
-      this.collection.add(contact);
+    saveContact: function(e) {
+      e.preventDefault();
+      this.collection.create(this.newContactAttributes());
       return this.closeForm();
     },
     newContactAttributes: function() {
@@ -29,7 +27,7 @@
       return this.$el.find('input[name=phone]').val('');
     },
     render: function() {
-      this.$el.html(this.template);
+      this.$el.html(this.template(this.model.attributes));
       return this;
     }
   });

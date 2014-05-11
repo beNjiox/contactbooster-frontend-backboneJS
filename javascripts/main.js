@@ -1,18 +1,35 @@
 (function() {
   window.AppRoot = new (Backbone.Router.extend({
     routes: {
-      "": "index"
+      "": "index",
+      "contact/:id": 'editContact'
     },
     initialize: function() {
-      return this.app = new ContactApp({
-        el: '#app'
+      this.contacts = new Contacts;
+      return this.contactListContainer = new ContactListContainer({
+        collection: this.contacts
       });
     },
     index: function() {
-      return this.app.render();
+      this.contacts.fetch();
+      return $('#app').html(this.contactListContainer.render().el);
+    },
+    editContact: function(id) {
+      var contact, contactDetail;
+      contact = new Contact({
+        id: id
+      });
+      contact.fetch();
+      contactDetail = new ContactDetail({
+        model: contact
+      });
+      console.log(contact);
+      return $('#app').html(contactDetail.render().el);
     },
     start: function() {
-      return Backbone.history.start();
+      return Backbone.history.start({
+        pushState: false
+      });
     }
   }));
 

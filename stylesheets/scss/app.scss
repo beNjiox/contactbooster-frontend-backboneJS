@@ -1,8 +1,31 @@
+#app {
+  padding-top:30px;
+}
+
 .contact_list {
-    margin-top: 20px;
-    padding: 0;
+  margin-top: 20px;
+  padding: 0;
+  .list-group-item {
+
+    &:hover {
+      cursor:pointer;
+    }
+
+    .phone {
+      font-style:italic;
+      font-size:11px;
+    }
+
+    .fa {
+      display:none;
+    }
+
+    &:hover {
+      .fa { display:inline }
+    }
+  }
 }
 
 .fa + span {
-  margin-left:5px
+  margin-left: 5px;
 }

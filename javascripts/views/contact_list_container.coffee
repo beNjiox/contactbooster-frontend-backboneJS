@@ -1,13 +1,11 @@
 window.ContactListContainer = Backbone.View.extend({
   initialize: ->
-    @contacts    = new Contacts
     @newContact  = new Contact
-    @contactList = new ContactList { collection: @contacts }
-    @addContact  = new AddContact  { collection: @contacts }
-    @contacts.fetch()
+    @contactList = new ContactList { collection: @collection }
+    @addContact  = new AddContact  { collection: @collection, model: @newContact }
   ,
   render: ->
-    @.$el.html(@contactList.render().el)
-    @.$el.append(@addContact.render().el)
+    @.$el.append @contactList.render().el
+    @.$el.append @addContact.render().el
     @
 })

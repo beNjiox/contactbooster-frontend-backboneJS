@@ -1,7 +1,7 @@
 window.AddContact = Backbone.View.extend({
   initialize: ->
   ,
-  template: $("#add-contact-tpl").html()
+  template: _.template($("#add-contact").html())
   ,
   events: {
     'click button.save': 'saveContact'
@@ -11,10 +11,9 @@ window.AddContact = Backbone.View.extend({
   toggleAdd: ->
     @.$el.find('.add-contact-container').slideToggle 'slow'
   ,
-  saveContact: ->
-    contact = new Contact(@newContactAttributes())
-    contact.save()
-    @collection.add contact
+  saveContact: (e) ->
+    e.preventDefault()
+    @collection.create @newContactAttributes()
     @closeForm()
   ,
   newContactAttributes: ->
@@ -28,8 +27,9 @@ window.AddContact = Backbone.View.extend({
     @.$el.find('input[name=lastname]').val('')
     @.$el.find('input[name=firstname]').val('')
     @.$el.find('input[name=phone]').val('')
+  ,
   render: ->
-    @.$el.html(@template)
+    @.$el.html(@template(@model.attributes))
     @
 
 })

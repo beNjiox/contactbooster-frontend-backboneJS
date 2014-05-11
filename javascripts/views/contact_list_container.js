@@ -1,18 +1,17 @@
 (function() {
   window.ContactListContainer = Backbone.View.extend({
     initialize: function() {
-      this.contacts = new Contacts;
       this.newContact = new Contact;
       this.contactList = new ContactList({
-        collection: this.contacts
+        collection: this.collection
       });
-      this.addContact = new AddContact({
-        collection: this.contacts
+      return this.addContact = new AddContact({
+        collection: this.collection,
+        model: this.newContact
       });
-      return this.contacts.fetch();
     },
     render: function() {
-      this.$el.html(this.contactList.render().el);
+      this.$el.append(this.contactList.render().el);
       this.$el.append(this.addContact.render().el);
       return this;
     }
