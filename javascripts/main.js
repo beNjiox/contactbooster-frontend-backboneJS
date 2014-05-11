@@ -6,13 +6,16 @@
     initialize: function() {
       this.contacts = new Contacts([
         {
-          name: "Benjamin",
+          lastname: 'Guez',
+          firstname: "Benjamin",
           telephone: "0625717532"
         }, {
-          name: "Michael Jordan",
+          lastname: 'Jordan',
+          firstname: "Michael",
           telephone: "5554443322"
         }, {
-          name: "Scottie Pippen",
+          lastname: 'Pippen',
+          firstname: "Scottie",
           telephone: "999955553333"
         }
       ]);

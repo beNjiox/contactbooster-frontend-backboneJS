@@ -11,7 +11,8 @@
     addOne: function(contact) {
       contact = new ContactItem({
         model: contact,
-        tagName: 'li'
+        tagName: 'a',
+        className: 'list-group-item'
       });
       return this.$el.append(contact.render().el);
     },

@@ -5,9 +5,9 @@ window.TodoApp = new (Backbone.Router.extend({
 
   initialize: ->
     @contacts    = new Contacts [
-      {name: "Benjamin", telephone: "0625717532"},
-      {name: "Michael Jordan", telephone: "5554443322"},
-      {name: "Scottie Pippen", telephone: "999955553333"},
+      {lastname: 'Guez', firstname: "Benjamin", telephone: "0625717532"},
+      {lastname: 'Jordan', firstname: "Michael", telephone: "5554443322"},
+      {lastname: 'Pippen', firstname: "Scottie", telephone: "999955553333"},
     ]
     @contactList = new ContactList({collection: @contacts, el: '.contact_list'})
 

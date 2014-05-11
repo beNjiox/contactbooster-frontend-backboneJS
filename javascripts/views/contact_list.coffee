@@ -8,7 +8,7 @@ window.ContactList = Backbone.View.extend({
     @collection.forEach @addOne, @
 
   addOne: (contact) ->
-    contact = new ContactItem {model: contact, tagName: 'li'}
+    contact = new ContactItem {model: contact, tagName: 'a', className: 'list-group-item'}
     @.$el.append contact.render().el
 
   render: ->

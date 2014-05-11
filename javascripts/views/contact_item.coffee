@@ -1,5 +1,5 @@
 window.ContactItem = Backbone.View.extend({
-  template: _.template('<%= name %> - <%= telephone %>'),
+  template: _.template('<strong> <%= lastname %> </strong> <%= firstname %> <div class="pull-right"><%= telephone %></div>'),
 
   initialize: ->
 
