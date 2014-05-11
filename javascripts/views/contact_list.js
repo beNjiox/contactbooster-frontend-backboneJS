@@ -1,5 +1,7 @@
 (function() {
   window.ContactList = Backbone.View.extend({
+    tagName: 'ul',
+    className: 'contact_list',
     initialize: function() {
       this.collection.on('add', this.addOne, this);
       return this.collection.on('reset', this.addAll, this);

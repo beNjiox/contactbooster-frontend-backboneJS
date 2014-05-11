@@ -1,38 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Title Page</title>
-    <meta charset="UTF-8">
-    <meta name=description content="">
-    <meta name=viewport content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css" rel="stylesheet">
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<head>
+  <title>Title Page</title>
+  <meta charset="UTF-8">
+  <meta name=description content="">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="stylesheets/app.css">
-  </head>
-  <body>
+  <link rel="stylesheet" href="stylesheets/app.css">
+</head>
+<body>
+  <div class='container'>
+    <h1 class='testLol'> contactbooster/backbone </h1>
+    <div id="app">
 
-    <div class='container'>
-      <h1> contactbooster/backbone </h1>
-      <div class="list-group">
-        <ul class='contact_list'>
-        </ul>
-      </div>
     </div>
+  </div>
 
-  </body>
-  <script src="http://code.jquery.com/jquery.js"></script>
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-  <script src="bower_components/underscore/underscore.js"></script>
-  <script src="bower_components/backbone/backbone.js"></script>
+  <div style='display:none'>
 
-  <!-- backbone app's files -->
-  <script src="javascripts/models/contact.js"></script>
-  <script src="javascripts/views/contact_item.js"></script>
+    <div id='add-contact-tpl'>
+      <button type="button" class="btn btn-sm btn-block btn-primary toggle">
+        <i class="fa fa-plus"></i> <span>Add contact</span>
+      </button>
 
-  <script src="javascripts/collections/contacts.js"></script>
-  <script src="javascripts/views/contact_list.js"></script>
-  <script src="javascripts/main.js"></script>
+      <form class="add-contact-container"  style='margin-top:10px;display:none'>
+          <div class="row">
+            <div class="col-xs-4">
+              <input class='form-control' type="text" name='lastname' placeholder='lastname' />
+            </div>
+            <div class="col-xs-4">
+              <input class='form-control' type="text" name='firstname' placeholder='firstname' />
+            </div>
+            <div class="col-xs-4">
+              <input class='form-control' type="text" name='phone' placeholder='telephone #' />
+            </div>
+          </div>
+          <div class="row" style='margin-top:10px'>
+            <div class="col-xs-4 col-sm-offset-8 text-right">
+              <button type="button" class="btn btn-sm btn-success save">Submit</button>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/backbone/backbone.js"></script>
+<script src="bower_components/backbone.localStorage/backbone.localStorage-min.js"></script>
+
+<!-- backbone app's files -->
+<script src="javascripts/views/add_contact.js"></script>
+
+<script src="javascripts/models/contact.js"></script>
+<script src="javascripts/views/contact_item.js"></script>
+
+<script src="javascripts/collections/contacts.js"></script>
+<script src="javascripts/views/contact_list.js"></script>
+
+<script src="javascripts/views/contact_list_container.js"></script>
+
+<script src="javascripts/views/app.js"></script>
+<script src="javascripts/main.js"></script>
+
+
+
 </html>

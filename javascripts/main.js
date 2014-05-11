@@ -1,31 +1,15 @@
 (function() {
-  window.TodoApp = new (Backbone.Router.extend({
+  window.AppRoot = new (Backbone.Router.extend({
     routes: {
       "": "index"
     },
     initialize: function() {
-      this.contacts = new Contacts([
-        {
-          lastname: 'Guez',
-          firstname: "Benjamin",
-          telephone: "0625717532"
-        }, {
-          lastname: 'Jordan',
-          firstname: "Michael",
-          telephone: "5554443322"
-        }, {
-          lastname: 'Pippen',
-          firstname: "Scottie",
-          telephone: "999955553333"
-        }
-      ]);
-      return this.contactList = new ContactList({
-        collection: this.contacts,
-        el: '.contact_list'
+      return this.app = new ContactApp({
+        el: '#app'
       });
     },
     index: function() {
-      return this.contactList.render();
+      return this.app.render();
     },
     start: function() {
       return Backbone.history.start();
@@ -33,8 +17,7 @@
   }));
 
   $(document).ready(function() {
-    window.TodoApp.start();
-    return console.log("app started!");
+    return window.AppRoot.start();
   });
 
 }).call(this);
