@@ -1,7 +1,4 @@
-#app {
-  padding-top: 30px; }
-
-.error-input {
+.add_contact_container .error-input {
   display: none;
   color: red;
   font-style: italic; }
@@ -14,7 +11,7 @@
   .contact_list .list-group-item .phone {
     font-style: italic;
     font-size: 11px; }
-  .contact_list .list-group-item .fa {
+  .contact_list .list-group-item .fa.action {
     display: none; }
   .contact_list .list-group-item:hover .fa {
     display: inline; }

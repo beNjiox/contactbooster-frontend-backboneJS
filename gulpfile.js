@@ -8,8 +8,9 @@ var connect    = require('gulp-connect');
 
 
 var paths = {
-  scripts: ['javascripts/**/*.coffee'],
-  scss: ['stylesheets/scss/*.scss']
+  scripts:   ['javascripts/**/*.coffee'],
+  scss:      ['stylesheets/scss/*.scss'],
+  templates: ['javascripts/views/partials/*', 'index.html']
 };
 
 gulp.task('connect', function() {
@@ -36,7 +37,7 @@ gulp.task('scss', function () {
 });
 
 gulp.task('templates', function(){
-  gulp.src('index.html')
+  gulp.src(paths.templates)
   .pipe(connect.reload());
 });
 
@@ -45,7 +46,8 @@ gulp.task('templates', function(){
 gulp.task('watch', function() {
   gulp.watch(paths.scripts, ['scripts']);
   gulp.watch(paths.scss, ['scss']);
-  gulp.watch('./index.html', ['templates']);
+  gulp.watch(paths.partials, ['partials']);
+  gulp.watch(paths.templates, ['templates']);
 });
 
 // The default task (called when you run `gulp` from cli)

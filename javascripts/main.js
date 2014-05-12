@@ -1,40 +1,28 @@
 (function() {
-  window.AppRoot = new (Backbone.Router.extend({
-    routes: {
-      "": "index",
-      "contact/:id": 'editContact'
+  require.config({
+    paths: {
+      'jQuery': '../bower_components/jquery/dist/jquery.min',
+      'bootstrap': '//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min',
+      'underscore': '../bower_components/underscore/underscore',
+      'backbone': '../bower_components/backbone/backbone',
+      'backbone.localStorage': '../bower_components/backbone.localStorage/backbone.localStorage-min'
     },
-    initialize: function() {
-      this.contacts = new Contacts;
-      return this.contactListContainer = new ContactListContainer({
-        collection: this.contacts
-      });
-    },
-    index: function() {
-      this.contacts.fetch();
-      return $('#app').html(this.contactListContainer.render().el);
-    },
-    editContact: function(id) {
-      var contact, contactDetail;
-      contact = new Contact({
-        id: id
-      });
-      contact.fetch();
-      contactDetail = new ContactDetail({
-        model: contact
-      });
-      console.log(contact);
-      return $('#app').html(contactDetail.render().el);
-    },
-    start: function() {
-      return Backbone.history.start({
-        pushState: false
-      });
+    shim: {
+      'underscore': {
+        exports: '_'
+      },
+      'backbone': {
+        exports: 'Backbone'
+      },
+      'jQuery': {
+        exports: '$'
+      }
     }
-  }));
+  });
 
-  $(document).ready(function() {
-    return window.AppRoot.start();
+  require(['jQuery', 'underscore', 'backbone', 'app'], function($, _, Backbone, App) {
+    console.log(App);
+    return App.start();
   });
 
 }).call(this);

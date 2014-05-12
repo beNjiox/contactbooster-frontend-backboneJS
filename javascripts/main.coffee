@@ -1,27 +1,25 @@
-window.AppRoot = new (Backbone.Router.extend({
-  routes: {
-    "": "index"
-    "contact/:id": 'editContact'
+require.config {
+  paths: {
+    'jQuery':                 '../bower_components/jquery/dist/jquery.min'
+    'bootstrap':              '//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min'
+    'underscore':             '../bower_components/underscore/underscore'
+    'backbone':               '../bower_components/backbone/backbone'
+    'backbone.localStorage':  '../bower_components/backbone.localStorage/backbone.localStorage-min'
+  },
+  shim: {
+    'underscore': {
+      exports: '_'
+    },
+    'backbone': {
+      exports: 'Backbone'
+    },
+    'jQuery': {
+      exports: '$'
+    }
   }
-  ,
-  initialize: ->
-    @contacts             = new Contacts
-    @contactListContainer = new ContactListContainer({collection:@contacts})
-  ,
-  index: ->
-    @contacts.fetch()
-    $('#app').html(@contactListContainer.render().el)
-  ,
-  editContact: (id) ->
-    contact       = new Contact({id: id})
-    contact.fetch()
-    contactDetail = new ContactDetail({model: contact})
-    console.log contact
-    $('#app').html(contactDetail.render().el)
-  ,
-  start: ->
-    Backbone.history.start({pushState: false})
-}))
+}
 
-$(document).ready ->
-  window.AppRoot.start()
+require ['jQuery', 'underscore', 'backbone', 'app'], ($, _, Backbone, App) ->
+  console.log App
+  App.start()
+
