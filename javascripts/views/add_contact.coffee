@@ -4,7 +4,7 @@ window.AddContact = Backbone.View.extend({
   template: _.template($("#add-contact").html())
   ,
   events: {
-    submit : 'saveContact'
+    'click .save' : 'saveContact'
     'click button.toggle': 'toggleAdd'
   }
   ,
@@ -13,8 +13,16 @@ window.AddContact = Backbone.View.extend({
   ,
   saveContact: (e) ->
     e.preventDefault()
-    @collection.create @newContactAttributes()
-    @closeForm()
+    newContact = @collection.create @newContactAttributes(), { wait: true }
+    if newContact.isValid()
+      @closeForm()
+    else
+      $('.error-input').hide()
+      @displayError(newContact.validationError)
+  ,
+  displayError: (errors) ->
+    for field, error of errors
+      $(".error-#{field}").html(error).fadeIn()
   ,
   newContactAttributes: ->
     {
@@ -24,6 +32,7 @@ window.AddContact = Backbone.View.extend({
     }
   ,
   closeForm: ->
+    $('.error-input').fadeOut()
     @.$el.find('input[name=lastname]').val('')
     @.$el.find('input[name=firstname]').val('')
     @.$el.find('input[name=phone]').val('')
