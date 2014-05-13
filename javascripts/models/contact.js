@@ -2,6 +2,11 @@
   define(['backbone', 'backbone.localStorage'], function(Backbone) {
     var Contact;
     Contact = Backbone.Model.extend({
+      initialize: function() {
+        return this.on('destroy', function() {
+          return console.log('Im the data, and Im being destroyed');
+        });
+      },
       localStorage: window.appLocalStorage || (window.appLocalStorage = new Backbone.LocalStorage("contacts")),
       defaults: {
         firstname: "",

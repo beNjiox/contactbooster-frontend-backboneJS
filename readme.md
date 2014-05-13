@@ -1,24 +1,23 @@
 [Contactbooster](#what-is-contactbooster) app using BackboneJS.
-[See demo](http://www.google.com).
-* CoffeeScript / RequireJS
-* LocalStorage and ContactboosterAPI compliant as storage
-* Mocha as testing
-* Gulp as building tool
+[See demo](contactbooster-backbone.bguez.io).
+* CoffeeScript / RequireJS.
+* LocalStorage and ContactboosterAPI compliant as storage.
+* Mocha as testing, Gulp as building tool, bower as frontend dependencies management.
 
-
-### requierement
+### requierements
 The app use gulp, mocha and bower so make sure those are installed.
 ```
 $> npm install -g bower
 $> npm install -g mocha
 $> npm install -g gulp
+
+$> git clone http://github.com/beNjiox/contactbooster-frontend-backboneJS.git
+$> cd contactbooster-frontend-backboneJS
+$> npm install && bower install
 ```
 
 ### development mode
 ```
-$> git clone http://github.com/beNjiox/contactbooster-frontend-backboneJS.git
-$> cd contactbooster-frontend-backboneJS
-$> npm install && bower install
 $> gulp
 $> open http://localhost:8080/
 ```

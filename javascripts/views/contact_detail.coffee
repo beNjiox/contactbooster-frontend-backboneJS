@@ -3,11 +3,10 @@ define ['text!views/partials/contact_detail.tpl'], (contactDetailTpl) ->
     template: _.template(contactDetailTpl)
     ,
     events: {
-      'submit': 'submit'
+      'submit': 'submit',
       'click .back': 'back',
       'click .remove': 'remove'
     }
-    ,
     remove: ->
       if confirm "Are you sure you want to remove this account?"
         @model.destroy()
