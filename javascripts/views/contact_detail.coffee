@@ -18,8 +18,14 @@ define ['text!views/partials/contact_detail.tpl'], (contactDetailTpl) ->
     ,
     submit: (e) ->
       e.preventDefault()
-      @model.save(@editContactAttributes())
-      Backbone.history.navigate("", {trigger: true})
+      $('.error-input').hide()
+      @model.set(@editContactAttributes())
+      if @model.isValid()
+        @model.save()
+        Backbone.history.navigate("", {trigger: true})
+      else
+        for field, error of @model.validationError
+          $(".error-#{field}").html(error).fadeIn()
     ,
     editContactAttributes: ->
       {

@@ -40,7 +40,7 @@
         };
       },
       closeForm: function() {
-        $('.error-input').fadeOut();
+        $('.error-input').hide();
         this.$el.find('input[name=lastname]').val('');
         this.$el.find('input[name=firstname]').val('');
         return this.$el.find('input[name=phone]').val('');

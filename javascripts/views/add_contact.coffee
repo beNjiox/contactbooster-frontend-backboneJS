@@ -33,7 +33,7 @@ define ['text!views/partials/add_contact.tpl'], (addContactTpl) ->
       }
     ,
     closeForm: ->
-      $('.error-input').fadeOut()
+      $('.error-input').hide()
       @.$el.find('input[name=lastname]').val('')
       @.$el.find('input[name=firstname]').val('')
       @.$el.find('input[name=phone]').val('')

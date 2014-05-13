@@ -20,6 +20,6 @@ require.config {
 }
 
 require ['jQuery', 'underscore', 'backbone', 'app'], ($, _, Backbone, App) ->
-  console.log App
+
   App.start()
 

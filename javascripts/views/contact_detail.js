@@ -19,11 +19,24 @@
         });
       },
       submit: function(e) {
+        var error, field, _ref, _results;
         e.preventDefault();
-        this.model.save(this.editContactAttributes());
-        return Backbone.history.navigate("", {
-          trigger: true
-        });
+        $('.error-input').hide();
+        this.model.set(this.editContactAttributes());
+        if (this.model.isValid()) {
+          this.model.save();
+          return Backbone.history.navigate("", {
+            trigger: true
+          });
+        } else {
+          _ref = this.model.validationError;
+          _results = [];
+          for (field in _ref) {
+            error = _ref[field];
+            _results.push($(".error-" + field).html(error).fadeIn());
+          }
+          return _results;
+        }
       },
       editContactAttributes: function() {
         return {

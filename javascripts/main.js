@@ -21,7 +21,6 @@
   });
 
   require(['jQuery', 'underscore', 'backbone', 'app'], function($, _, Backbone, App) {
-    console.log(App);
     return App.start();
   });
 

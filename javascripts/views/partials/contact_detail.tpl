@@ -3,18 +3,21 @@
     <label for="inputFirstname" class="col-sm-2 control-label">Firstname</label>
     <div class="col-sm-10">
       <input type="text" name="firstname" id="inputFirstname" class="form-control" value="<%= firstname %>" >
+      <div class='error-input error-firstname'></div>
     </div>
   </div>
   <div class="form-group">
     <label for="inputLastname" class="col-sm-2 control-label">Lastname</label>
     <div class="col-sm-10">
       <input type="text" name="lastname" id="inputLastname" class="form-control" value="<%= lastname %>" >
+      <div class='error-input error-lastname'></div>
     </div>
   </div>
   <div class="form-group">
     <label for="inputPhone" class="col-sm-2 control-label">Phone</label>
     <div class="col-sm-10">
       <input type="text" name="phone" id="inputPhone" class="form-control" value="<%= phone %>" >
+      <div class='error-input error-phone'></div>
     </div>
   </div>
   <div class="form-group">
