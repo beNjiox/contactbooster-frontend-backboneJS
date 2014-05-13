@@ -38,9 +38,8 @@ gulp test
 
 ### What is contactbooster?
 
-Contactbooster is a little contactApp that is created using different framework/libraries for both backend and frontend.
-
-See it as a TodoMVC type of project, that also includes different backend solutions.
+Contactbooster is a little web app to manage contact lists.
+My goal was to release the app using different testing,frontend and backend framework/librairies.
 
 **Clients available**: Backbone (AngularJS, Ember incoming)
 
