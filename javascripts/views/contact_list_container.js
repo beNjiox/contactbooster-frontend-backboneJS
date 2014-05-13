@@ -1,5 +1,5 @@
 (function() {
-  define(['models/contact', 'views/contact_list', 'views/add_contact'], function(Contact, ContactList, AddContact) {
+  define(['backbone', 'models/contact', 'views/contact_list', 'views/add_contact'], function(Backbone, Contact, ContactList, AddContact) {
     return Backbone.View.extend({
       initialize: function() {
         this.newContact = new Contact;

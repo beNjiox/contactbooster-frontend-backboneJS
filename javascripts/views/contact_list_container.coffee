@@ -1,4 +1,4 @@
-define ['models/contact', 'views/contact_list', 'views/add_contact'], (Contact, ContactList, AddContact) ->
+define ['backbone', 'models/contact', 'views/contact_list', 'views/add_contact'], (Backbone, Contact, ContactList, AddContact) ->
   return Backbone.View.extend({
     initialize: ->
       @newContact  = new Contact
