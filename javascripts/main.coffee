@@ -5,6 +5,7 @@ require.config {
     'underscore':             '../bower_components/underscore/underscore'
     'backbone':               '../bower_components/backbone/backbone'
     'backbone.localStorage':  '../bower_components/backbone.localStorage/backbone.localStorage-min'
+    'text':                   '../bower_components/requirejs-text/text'
   },
   shim: {
     'underscore': {
