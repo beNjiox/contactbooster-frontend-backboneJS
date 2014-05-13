@@ -8,9 +8,10 @@ var connect    = require('gulp-connect');
 
 
 var paths = {
-  scripts:   ['javascripts/**/*.coffee'],
-  scss:      ['stylesheets/scss/*.scss'],
-  templates: ['javascripts/views/partials/*', 'index.html']
+  scripts:     ['javascripts/**/*.coffee'],
+  test_coffee: ['tests/*.coffee'],
+  scss:        ['stylesheets/scss/*.scss'],
+  templates:   ['javascripts/views/partials/*', 'index.html']
 };
 
 gulp.task('connect', function() {
@@ -29,6 +30,16 @@ gulp.task('scripts', function() {
     .pipe(connect.reload());
 });
 
+gulp.task('tests_coffee', function() {
+  return gulp.src(paths.test_coffee)
+    .pipe(plumber())
+    .pipe(coffee())
+      .on('error', gutil.log)
+      .on('error', gutil.beep)
+    .pipe(gulp.dest('./tests'))
+    .pipe(connect.reload());
+});
+
 gulp.task('scss', function () {
   gulp.src(paths.scss)
     .pipe(scss())
@@ -41,8 +52,6 @@ gulp.task('templates', function(){
   .pipe(connect.reload());
 });
 
-
-// Rerun the task when a file changes
 gulp.task('watch', function() {
   gulp.watch(paths.scripts, ['scripts']);
   gulp.watch(paths.scss, ['scss']);
@@ -50,5 +59,4 @@ gulp.task('watch', function() {
   gulp.watch(paths.templates, ['templates']);
 });
 
-// The default task (called when you run `gulp` from cli)
-gulp.task('default', ['scripts', 'scss', 'watch', 'connect']);
+gulp.task('default', ['scripts', 'tests_coffee', 'scss', 'watch', 'connect']);
