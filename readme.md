@@ -1,5 +1,5 @@
 [Contactbooster](#what-is-contactbooster) app using BackboneJS.
-[See demo](contactbooster-backbone.bguez.io).
+[See demo](http://contactbooster-backbone.bguez.io).
 * CoffeeScript / RequireJS.
 * LocalStorage and ContactboosterAPI compliant as storage.
 * Mocha as testing, Gulp as building tool, bower as frontend dependencies management.
